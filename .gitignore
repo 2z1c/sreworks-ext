@@ -3,3 +3,9 @@
 .ipynb_checkpoints/*
 .idea/*
 __pycache__/*
+*.o
+*.o.d
+*.bin
+*.d
+*.make.output
+*.a

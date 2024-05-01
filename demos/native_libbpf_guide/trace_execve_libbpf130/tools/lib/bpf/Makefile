@@ -109,8 +109,15 @@ $(info bpf---$(feature-bpf))
 $(info libelf-mmap---$(feature-libelf-mmap))
 $(info reallocarray---$(feature-reallocarray))
 
-#### feature test end
+define echo_yt
+  $(info echo $(MAKE) OUTPUT=$(OUTPUT_FEATURES) CFLAGS="$(EXTRA_CFLAGS) $(FEATURE_CHECK_CFLAGS-$(1))" CXXFLAGS="$(EXTRA_CXXFLAGS) $(FEATURE_CHECK_CXXFLAGS-$(1))" LDFLAGS="$(LDFLAGS) $(FEATURE_CHECK_LDFLAGS-$(1))" -C $(feature_dir) $(OUTPUT_FEATURES)test-$1.bin)
+endef
 
+$(call echo_yt,libelf)
+
+#### feature test end
+ytecho:
+	echo "end!!!!!!!!!!!!!!"
 comma   := ,
 
 dot-target = $(dir $@).$(notdir $@)
